@@ -1,6 +1,10 @@
 package com.example;
 
 import android.content.Context;
+import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -23,5 +27,15 @@ public class Utils {
             styledText.setSpan(new TextAppearanceSpan(context, subTitleStyle), start, start + subTitle.length() + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         return styledText;
+    }
+
+    public static void changeFragment(FragmentManager manager, @IdRes int layout, Fragment fragment, int transitionStyle)
+    {
+        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+        fragmentTransaction.replace(layout, fragment, fragment.getClass().getSimpleName());
+        fragmentTransaction.setTransition(transitionStyle);
+        fragmentTransaction.addToBackStack(fragment.getClass().getSimpleName());
+        fragmentTransaction.commitAllowingStateLoss();
+//        manager.executePendingTransactions();
     }
 }

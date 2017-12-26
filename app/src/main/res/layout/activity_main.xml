@@ -10,19 +10,29 @@
         android:id="@+id/inTitleBarStub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/title_bar" />
-    <android.support.v7.widget.RecyclerView
+        layout="@layout/title_bar"
+        />
+
+    <!--<android.support.v7.widget.RecyclerView
         android:id="@+id/rvToDoList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        app:layout_anchor="@id/inTitleBarStub"
+        android:layout_marginTop="100dp"
+        android:layout_height="match_parent"/>-->
 
+    <View
+        android:id="@+id/fadeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gray"
+        android:foregroundGravity="top"
+        android:visibility="visible" />
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@mipmap/heart_image"
-        app:layout_anchor="@id/rvToDoList"
         app:backgroundTint="@color/white"
         app:layout_anchorGravity="bottom|right|end"/>
 </android.support.design.widget.CoordinatorLayout>
